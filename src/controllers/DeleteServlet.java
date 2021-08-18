@@ -43,6 +43,7 @@ public class DeleteServlet extends HttpServlet {
             em.getTransaction().begin();
             em.remove(m);
             em.getTransaction().commit();
+            request.getSession().setAttribute("flush", "削除が完了しました。");
             em.close();
 
             //セッションスコープから不要になったデータを削除
